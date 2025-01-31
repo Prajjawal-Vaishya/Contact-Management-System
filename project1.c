@@ -4,42 +4,36 @@
 // Edit Contacts: Modify contact details.
 
 #include <stdio.h>
+#include <string.h>
 struct contact
 {
     char name[50];
-    char number[10];
+    char number[11];
     char email[120];
 };
 
-
-struct contact contact_list[] = {
-    {"Abhay Singh","9954305692","abhaysingh@gmail.com"}, 
-    {"Vedansh Gupta","8299529290","vedanshgupta@gmail.com"},
-    {"Prince Gupta","9369522694","prajjawalvaishya@gmail.com"},
-    {"Navjot","8649302045","navjot2@amityonline.com"}
-};
-
-int c_length(arr1) {
-    for (int index = 0; index < 1000000000; index++) {
-        if (arr1[index]=="") {
-
-        }
-    }
-    
-}
-
-int display_contact() {
-    for (int i = 0; i < 1000000000; i++)
+void display_contact(struct contact *arry1, int size)
+{
+    printf("CONTACT LIST \n");
+    printf("---------------------+-----------------+-------------------------------\n");
+    for (int i = 0; i < size; i++)
     {
-        
+        printf("%-20s | %-15s | %s \n", arry1[i].name, arry1[i].number, arry1[i].email);
     }
-    
 }
 
-int main() {
+int main(){
+    struct contact contact_list[] = {
+        {"Abhay Singh", "99xxxxxxxx", "atemplate@mail.com"},
+        {"Vedansh Gupta", "82xxxxxxxx", "vtemplate@mail.com"},
+        {"Prince Gupta", "93xxxxxxxx", "ptemplate@mail.com"},
+        {"Navjot", "86xxxxxxxx", "ntemplate@mail.com"}};
+
+
+
     int arra1 = 1;
-    printf("%s",contact_list[arra1]);
-    printf("%s",contact_list[3]);
-    
+    int size = sizeof(contact_list) / sizeof(contact_list[0]);
+    display_contact(contact_list, size);
+
     return 0;
 }
