@@ -19,6 +19,13 @@ void display_contact(struct contact *arry1, int size) {
     }
 }
 
+void search_contact(struct contact *arry1, int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%s",arry1[i].name);
+    }
+    
+};
+
 
 
 struct contact add_contact () {
@@ -41,8 +48,10 @@ int main() {
         };
 
 
+
     printf("%s \n", contact_list[3].name);
     int size = sizeof(contact_list) / sizeof(contact_list[0]);
+    search_contact(contact_list,size);
     display_contact(contact_list, size);
 
     int position = size;
