@@ -20,8 +20,10 @@ void display_contact(struct contact *arry1, int size) {
 }
 
 void search_contact(struct contact *arry1, int size) {
+    char search_char;
+    scanf("%s",search_char);
     for (int i = 0; i < size; i++) {
-        printf("%s",arry1[i].name);
+        if (search_char == arry1[i].name)
     }
     
 };
