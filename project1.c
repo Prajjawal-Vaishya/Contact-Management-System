@@ -21,10 +21,18 @@ void display_contact(struct contact *arry1, int size) {
 
 void search_contact(struct contact *arry1, int size) {
     char search_char;
-    scanf("%s",search_char);
+    printf("Search: ");
+    scanf("%s",&search_char);
     for (int i = 0; i < size; i++) {
-        if (search_char == arry1[i].name)
+        if (search_char == arry1[i].name[0]) {
+            printf("Detail of Contact: %s | %s |%s",arry1[i].name,arry1[i].number,arry1[i].email);
+            return;
+        }
+        else if (search_char == arry1[i].number[0]) {
+            printf("Detail of Contact: %s | %s | %s")
+        }
     }
+    printf("Not Found \n");
     
 };
 
@@ -51,15 +59,8 @@ int main() {
 
 
 
-    printf("%s \n", contact_list[3].name);
     int size = sizeof(contact_list) / sizeof(contact_list[0]);
     search_contact(contact_list,size);
-    display_contact(contact_list, size);
-
-    int position = size;
-    contact_list[position] = add_contact();
-
-    size = sizeof(contact_list) / sizeof(contact_list[0])+1;
     display_contact(contact_list, size);
 
     return 0;
