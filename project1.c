@@ -46,7 +46,7 @@ void remove_contact (struct contact *arry1, int size) {
             temp = 1;
         }
         else if (temp==1 && i == size-1){
-            
+            arry1[size-1] = blank_arr;
         }
         else if (temp == 1) {
             arry1[i] = arry1[i+1];
@@ -72,14 +72,19 @@ int main() {
         {"Vedansh Gupta", "82xxxxxxxx", "vtemplate@mail.com"},
         {"Prince Gupta", "93xxxxxxxx", "ptemplate@mail.com"},
         {"Navjot", "86xxxxxxxx", "ntemplate@mail.com"}
-        };
-
-
-
+    };
+    
     int size = sizeof(contact_list) / sizeof(contact_list[0]);
+    display_contact(contact_list, size);
+    
+    struct contact contact_list = add_contact();
+
+
+    size = sizeof(contact_list) / sizeof(contact_list[0]);
     display_contact(contact_list, size);
     remove_contact(contact_list,size);
     size = sizeof(contact_list) / sizeof(contact_list[0]);
     display_contact(contact_list, size);
+    printf("\n SIZE- %d",size);
     return 0;
 }
